@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html>
-<body style = "background: url(jerma.jpg)">
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+    <head>
+        <link rel="stylesheet" href="mystyle.css">
+        <script>
+            done = false
+            function playAudio(url) {
+                if (done == false) {
+                    new Audio(url).play().loop = true;
+                    done = true
+                }
+            }
+        </script>
+    </head>
+    <body style = "background: url(jerma.jpg)">
+        <img src="button.png" onclick="playAudio('amogus.mp3')" class="center">
+
+        <h1></h1>
+        <p></p>
+    </body>
 </html>
