@@ -3,17 +3,32 @@
     <head>
         <link rel="stylesheet" href="mystyle.css">
         <script>
+            var myAudio = new Audio('amogus.mp3'); 
+            myAudio.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            
             done = false
-            function playAudio(url) {
+            function playAudio() {
                 if (done == false) {
-                    new Audio(url).play().loop = true;
+                    myAudio.play();
                     done = true
                 }
             }
+
+            function changeBackground(url) {
+                document.body.style.backgroundImage = url;
+            }
+
+            function buttonClicked(urlb) {
+                playAudio();
+                changeBackground(urlb);
+            }
         </script>
     </head>
-    <body style = "background: url(jerma.jpg)">
-        <img src="button.png" onclick="playAudio('amogus.mp3')" class="center">
+    <body style = "background: url(black.png)">
+        <img src="button.png" onclick="buttonClicked('url(jerma.jpg)')" class="center">
 
         <h1></h1>
         <p></p>
