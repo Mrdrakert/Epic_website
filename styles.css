@@ -5,16 +5,8 @@ body {
 
     background-image: url('./images/background.png');
     background-size: 120px;
+    margin: 0;
 }
-
-
-#wrapper {
-    margin-right: 10%;
-    margin-left: 10%;
-    background: #333333;
-    width: 80%;
-}
-
 
 #content {
     margin-top: 5%;
@@ -23,6 +15,41 @@ body {
     width: 90%;
 }
 
+.ui-widget {
+    font-family: inherit;
+}
+
+
+.ui-widget-header {
+    color: inherit;
+    border: none;
+    background: inherit;
+}
+
+.ui-widget-content {
+    background: inherit;
+    color: inherit;
+}
+
+.wrapper {
+    margin-right: 10%;
+    margin-left: 10%;
+    background: #333333;
+    width: 80%;
+}
+
+.dialogClass {
+    background: white;
+}
+
+.darkMode {
+    color: black;
+    background-image: url('./images/background-light.png');
+}
+
+.darkModeDiv {
+    background: #c7c7c7;
+}
 
 .showNavBar {
     display: block;
@@ -46,11 +73,20 @@ p {
 }
 
 .imagemain {
-    width: 65%;
+    width: 60%;
     margin-right: 10px;
+    margin-left: 10px;
     margin-bottom: 5px;
     float: right;
 }
+.imagemainleft {
+    width: 60%;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    float: left;
+}
+
 
 h2 {
     float: left;
@@ -59,7 +95,6 @@ h2 {
 }
 
 header {
-    margin-top: -10px;
     background: #00ad85;
 }
 
@@ -103,29 +138,68 @@ nav a:hover {
     color: #00ff91;
     background: #009c78;
     transition: 0.2s;
+    cursor: pointer;
 }
 
-#spoilerbutton {
+.spoilerbutton {
     font-size: 20px;
-    font: 'Poppins';
+    font-family: 'Poppins';
     width: 20%;
     height: 50px;
     margin: 3px 0px;
     color: #e6e6e6;
     background: #3ead94;
     border: 0;
+    border-radius: 2px;
 }
 
-#spoilerbutton:hover {
+.spoilerbutton:hover {
     color: #ffffff;
     cursor: pointer;
+}
+
+.listnav {
+    display: flex;
+    justify-content: center;
+}
+
+.basicbutton {
+    text-align: center;
+    line-height: 50px;
+    font-size: 35px;
+    font-family: 'Poppins';
+    width: 8%;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 3px;
+    color: #e6e6e6;
+    background: #3ead94;
+    border: 0;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.basicbutton:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.pagenumber {
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
 
 @media only screen and (max-width: 1075px) {
     body {
-
         font-size: 3vw;
+    }
+
+    #wrapper {
+        margin-right: 6vw;
+        margin-left: 6vw;
+        background: #333333;
+        width: 88vw;
     }
 
     p {
@@ -154,6 +228,7 @@ nav a:hover {
         width: 100%;
         transition: height 200ms;
     }
+
     nav li {
         display: block;
         padding-top: 5px;
@@ -161,6 +236,7 @@ nav a:hover {
         margin-right: 0;
         margin-left: 0px;
     }
+
     nav a {
         padding: 0.5vw 0.9vw;
     }
@@ -172,10 +248,24 @@ nav a:hover {
         padding-top: 0;
     }
 
-    #spoilerbutton {
+    .spoilerbutton {
         width: 24vw;
         height: 6vw;
         font-size: 2.5vw;
     }
+
+    .basicbutton {
+        margin-right: 1vw;
+        width: 9vw;
+        height: 5vw;
+        font-size: 4vw;
+        line-height: 5vw;
+    }
+
+    .pagenumber {
+        margin-right: 1vw;
+        margin-top: 1vw;
+    }
+
 }
 

@@ -5,30 +5,90 @@
     <meta charset="utf-8">
 
     <link rel="icon" href="neco_arc.ico">
-    <link rel="stylesheet" href="styles.css">
+
+
+
+
     <link href="http://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Super strona xd</title>
 
+    <style>
+        .listJSbutton {
+            display: inline-block;
+        }
 
+        .listNoJSbutton {
+            display: none;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            #dialog1 {
+                display: none;
+            }
+
+            #dialog2 {
+                display: none;
+            }
+
+
+            .listJSbutton {
+                display: none;
+            }
+
+            .listNoJSbutton {
+                display: inline-block;
+            }
+
+            nav ul {
+                display: block;
+            }
+
+            @media only screen and (max-width: 1075px) {
+                nav ul {
+                    display: block;
+                }
+            }
+        </style>
+    </noscript>
 
 </head>
 
 <body>
-    <div id="wrapper">
+    <div id="dialog1" title="Uwaga">
+        <p>Tryb jasny został włączony.</p>
+    </div>
+
+    <div id="dialog2" title="Uwaga">
+        <p>Tryb nocny został włączony.</p>
+    </div>
+
+
+    
+
+    <div class="wrapper">
         <header>
             <div class="container">
-                
 
                 <nav>
-                    <h2> Super strona </h2>
+                    <h2 id="sussy"> Gry wideo </h2>
                     <input type="image" id="image" alt="Login" src="./images/menuicon.png" onclick="toggleNavBar()" class="navbutton">
                     <ul id="navTogglable">
                         <li> <a class="active" href="index.html"> Strona główna </a></li>
-                        <li> <a href="lista-0.html"> Lista </a></li>
-                        <li> <a href="#"> Fuck you </a></li>
+
+                        <li class="listJSbutton"> <a onclick="openList()"> Lista </a></li>
+                        <li class="listNoJSbutton"> <a href="lista-0.html"> Lista </a></li>
+
+                        <li> <a id="modeButton" onclick="toggleDarkMode(this)"> 🌣 / ☾ </a></li>
 
 
                     </ul>
@@ -44,30 +104,58 @@
 
         <div id="content">
 
-            <h1> Sussy baka </h1>
+            <h1> Strona główna </h1>
             <hr>
-            <!--<img class="imagemain" src="./images/mainimage.jpg"> -->
+
+            <img style="width: 50%;" class="imagemain" alt="funeral" src="./images/w3funeral.jpg">
 
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ligula leo, sodales eu nulla eget, bibendum luctus augue. Cras consectetur augue quis justo finibus, et maximus sapien fringilla. Fusce eu magna quis diam tempus semper. Suspendisse suscipit mi sed vulputate tempor. Aenean vel dolor consectetur, efficitur orci sed, ultricies turpis. Phasellus gravida maximus risus non euismod. Nunc at euismod mi, et dictum purus.
+                Gry komputerowe to nie tylko bezmyślna rozrywka dla dzieci w wieku 10-14. Mogą być one medium przekazującym treści nieuchwytne w każdy inny sposób. Łączą elementy filmów, książek i muzyki w
+                interaktywną całość. W odbiorze sztuki ważne są nasze wrażenia, i trudniej o wrażenia gdy mamy bezpośredni wpływ na przebieg akcji.
             </p>
 
             <p>
-                Curabitur aliquet ut ipsum vel posuere. Vivamus pharetra nisl quis sem commodo faucibus. Suspendisse hendrerit, nisl nec convallis posuere, metus sem efficitur tellus, ac placerat neque erat sit amet risus. Sed condimentum, tellus non porttitor posuere, purus risus convallis ligula, ac interdum sem purus ac velit. Aliquam lacinia cursus est sed eleifend. Nullam scelerisque, augue quis convallis fermentum, libero nisl tincidunt tellus, non egestas tortor magna quis ligula. Nullam sapien orci, feugiat et sagittis non, posuere rutrum sem. Phasellus nec blandit justo. Curabitur imperdiet orci enim, sit amet elementum est aliquet at. Proin vulputate tellus non porta ultricies. Cras sed placerat lorem, ut suscipit odio.
+                W grach, twórcy scenariuszów mogą wykazać się bardziej, tworząc historie zmieniające się pod wpływem naszych decyzji podejmowanych w trakjie przygody. Natomiast kompozytorzy
+                mogą dostosować muzykę do miejsca w którym znajduje się nasza postać aby wywrzeć silne emocje.
             </p>
 
             <p>
-                Sed mi quam, luctus sed sem non, rhoncus fermentum mi. Nam vitae turpis risus. Nulla placerat cursus tortor ut pellentesque. Praesent pharetra sit amet odio sit amet semper. Aliquam erat volutpat. Aenean feugiat accumsan gravida. Etiam in sodales ante, ac sagittis odio. Morbi tristique, metus et condimentum tristique, lorem eros bibendum purus, id molestie nisi turpis vel sapien. Fusce elementum, nulla ut ornare vehicula, lacus nisi elementum sem, vel mollis tortor ante in orci. Vivamus congue sodales mauris, vel tincidunt metus lacinia malesuada. Nulla quis elit tincidunt, rutrum diam nec, vestibulum nisi. Mauris fermentum gravida congue. Morbi vestibulum, nisi tristique tempor congue, enim augue mollis augue, eget varius orci urna eu arcu. Proin interdum erat vel sollicitudin tincidunt.
+                Niektóre odpowiednio skonstruowane gry poprzez rozgrywkę, mogą nauczyć nas czegoś o samych sobie.
             </p>
 
-            <p>
-                Morbi sed lectus feugiat, ultrices odio nec, consectetur tellus. Morbi purus magna, interdum et odio ac, suscipit fermentum quam. Nunc feugiat erat in justo faucibus accumsan. Curabitur ac purus eu dui congue malesuada pretium a sem. In hac habitasse platea dictumst. In in nisi nec nisi iaculis tincidunt at ac turpis. Maecenas laoreet hendrerit sollicitudin. Proin feugiat tortor porta tristique malesuada. Donec rhoncus in tortor eu blandit. Cras eget turpis cursus, iaculis metus sed, convallis risus. Aenean at turpis dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus, ligula in scelerisque ornare, tellus neque vulputate metus, in tempus diam nisl nec leo. Pellentesque faucibus tincidunt lorem. Donec mauris ex, pulvinar sed sagittis in, euismod ut est. Cras ut velit elementum, ultrices elit vitae, porta magna.
-            </p>
+            <br><br><br><br><br>
+
+            <button class="spoilerbutton" name="spoilerbutton" type="button" onclick="spawnGeralt()">
+                Łapka w górę!
+            </button> <br>
+            <div id="geralts">
+                <img id="geralt" alt="geralt" style="width: 14vw;" src="./images/geralt.png">
+
+            </div>
+
+
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Autor strony</a></li>
+                    <li><a href="#tabs-2">Informacje</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <p>Autor: Jan Szewczul</p>
+                    <p>Indeks: 188784</p>
+                    <p>Grupa: Grupa 5</p>
+                    <p>Kierunek: Informatyka</p>
+                </div>
+                <div id="tabs-2">
+                    <p>Wersja Jquery: 3.6.0</p>
+                    <p>Wersja Jquery UI: 1.13.0</p>
+                    <br>
+                </div>
+            </div>
 
             <br><br><br>
 
         </div>
-    </div>
+        </div>
     <script type="text/javascript" src="script.js"></script>
 </body>
 
