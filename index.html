@@ -1,36 +1,72 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="mystyle.css">
-        <script>
-            var myAudio = new Audio('amogus.mp3'); 
-            myAudio.addEventListener('ended', function() {
-                this.currentTime = 0;
-                this.play();
-            }, false);
-            
-            done = false
-            function playAudio() {
-                if (done == false) {
-                    myAudio.play();
-                    done = true
-                }
-            }
+<!doctype html>
 
-            function changeBackground(url) {
-                document.body.style.backgroundImage = url;
-            }
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            function buttonClicked(urlb) {
-                playAudio();
-                changeBackground(urlb);
-            }
-        </script>
-    </head>
-    <body style = "background: url(black.png)">
-        <img src="button.png" onclick="buttonClicked('url(jerma.jpg)')" class="center">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
-        <h1></h1>
-        <p></p>
-    </body>
+  <title>Wordle+</title>
+  <meta name="description" content="Super cool wordle.">
+  <meta name="author" content="Szweksus">
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  <p id="log"></p>
+
+  <div class="game_row" name="row1">
+    <div class="game_cell" name="1"> </div>
+    <div class="game_cell" name="2"> </div>
+    <div class="game_cell" name="3"> </div>
+    <div class="game_cell" name="4"> </div>
+    <div class="game_cell" name="5"> </div>
+  </div>
+
+  <div class="game_row" name="row2">
+    <div class="game_cell" name="1"> </div>
+    <div class="game_cell" name="2"> </div>
+    <div class="game_cell" name="3"> </div>
+    <div class="game_cell" name="4"> </div>
+    <div class="game_cell" name="5"> </div>
+  </div>
+
+  <div class="game_row" name="row3">
+    <div class="game_cell" name="1"> </div>
+    <div class="game_cell" name="2"> </div>
+    <div class="game_cell" name="3"> </div>
+    <div class="game_cell" name="4"> </div>
+    <div class="game_cell" name="5"> </div>
+  </div>
+
+  <div class="game_row" name="row4">
+    <div class="game_cell" name="1"> </div>
+    <div class="game_cell" name="2"> </div>
+    <div class="game_cell" name="3"> </div>
+    <div class="game_cell" name="4"> </div>
+    <div class="game_cell" name="5"> </div>
+  </div>
+
+  <div class="game_row" name="row5">
+    <div class="game_cell" name="1"> </div>
+    <div class="game_cell" name="2"> </div>
+    <div class="game_cell" name="3"> </div>
+    <div class="game_cell" name="4"> </div>
+    <div class="game_cell" name="5"> </div>
+  </div>
+
+  <div class="game_row" name="row6">
+    <div class="game_cell" name="1"> </div>
+    <div class="game_cell" name="2"> </div>
+    <div class="game_cell" name="3"> </div>
+    <div class="game_cell" name="4"> </div>
+    <div class="game_cell" name="5"> </div>
+  </div>
+    
+
+    <script src="script.js"></script>
+</body>
 </html>
