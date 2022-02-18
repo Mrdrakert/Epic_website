@@ -1,0 +1,28 @@
+.game_cell {
+    display: inline-block;
+    vertical-align: top;
+    width: 70px;
+    height: 70px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    text-align: center;
+    line-height: 65px; 
+    font-size: 60px;
+}
+
+.game_row {
+    margin-bottom: 10px;
+}
+
+.greenbg {
+    background-color: rgb(95, 226, 101);
+}
+
+.yellowbg {
+    background-color: rgb(231, 231, 79);
+}
+
+.blackbg {
+    background-color: rgb(175, 168, 168);
+}
