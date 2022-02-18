@@ -1,0 +1,166 @@
+﻿<!doctype html>
+
+<html lang="pl-PL">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="icon" href="neco_arc.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Super strona xd</title>
+
+    <style>
+        .listJSbutton {
+            display: inline-block;
+        }
+
+        .listNoJSbutton {
+            display: none;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            #dialog1 {
+                display: none;
+            }
+
+            #dialog2 {
+                display: none;
+            }
+
+            .listJSbutton {
+                display: none;
+            }
+
+            .listNoJSbutton {
+                display: inline-block;
+            }
+
+            nav ul {
+                display: block;
+            }
+
+            @media only screen and (max-width: 1075px) {
+                nav ul {
+                    display: block;
+                }
+            }
+        </style>
+    </noscript>
+
+</head>
+
+<body>
+    <div id="dialog1" title="Uwaga">
+        <p>Tryb jasny został włączony.</p>
+    </div>
+
+    <div id="dialog2" title="Uwaga">
+        <p>Tryb nocny został włączony.</p>
+    </div>
+
+    
+
+    <div class="wrapper">
+        <header>
+            <div class="container">
+
+
+                <nav>
+                    <h2> Gry wideo </h2>
+                    <input type="image" id="image" alt="Login" src="./images/menuicon.png" onclick="toggleNavBar()" class="navbutton">
+                    <ul id="navTogglable">
+                        <li> <a href="index.html"> Strona główna </a></li>
+
+                        <li class="listJSbutton"> <a class="active" onclick="openList()"> Lista </a></li>
+                        <li class="listNoJSbutton"> <a class="active" href="lista-0.html"> Lista </a></li>
+
+                        <li> <a id="modeButton" onclick="toggleDarkMode(this)"> 🌣 / ☾ </a></li>
+
+
+                    </ul>
+
+
+                </nav>
+
+
+
+            </div>
+        </header>
+
+
+        <div id="content">
+
+            <div class="listnav">
+                <a class="basicbutton" href="lista-0.html" name="nextbutton">
+                    &lt;&lt;
+                </a>
+                <a class="basicbutton" href="lista-5.html" name="nextbutton">
+                    &lt;
+                </a>
+                <div class="pagenumber">
+                    Strona 6
+                </div>
+                <a class="basicbutton" href="lista-7.html" name="nextbutton">
+                    &gt;
+                </a>
+                <a class="basicbutton" href="lista-10.html" name="nextbutton">
+                    &gt;&gt;
+                </a>
+
+
+
+            </div>
+
+            <h1> Team Fortress 2 </h1>
+            <hr>
+
+
+            <img class="imagemainleft" alt="tf2" src="./images/games/tf2/tf2.jpg">
+
+            <p>
+                Team Fortress 2 to sieciowa strzelanka pierwszo-osobowa. W dynamicznych starciach z innymi graczami mamy do wyboru 9 zróżnicowanych klas które uzupełniają nawzajem swoje słabości.
+                Aby zwyciężyć często potrzebne jest zgranie między osobami w drużynie.
+            </p>
+            <p>
+                TF2 ma niezwykle beztroski ton, a bohaterowie gry mimo, że są najemnikami, emanują charyzmą. Bardzo często dochodzi do sytuacji gdy gracze zamiast walczyć, urządzają sobie piknik
+                na środku pola bitwy. 
+            </p>
+            <p>
+                Dzięki tej przyjaznej atmosferze, 14 lat po premierze w Team Fortress 2 nadal gra mnóstwo osób.
+            </p>
+
+            <br><br>
+
+            <button class="spoilerbutton" name="spoilerbutton" type="button" onclick="toggleText(spoilertext1, this)">
+                Specyfikacja
+            </button> <br>
+            <div id="spoilertext1">
+                <p>
+                    Wydawca gry: Valve
+                </p>
+                <p>
+                    Rok wydania: 2007
+                </p>
+                <p>
+                    Platformy: PC, Xbox 360, PlayStation 3
+                </p>
+                
+            </div>
+
+
+            <br><br><br><br><br>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+﻿<!doctype html>
+
+<html lang="pl-PL">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="icon" href="neco_arc.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Super strona xd</title>
+
+    <style>
+        .listJSbutton {
+            display: inline-block;
+        }
+
+        .listNoJSbutton {
+            display: none;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            #dialog1 {
+                display: none;
+            }
+
+            #dialog2 {
+                display: none;
+            }
+
+            .listJSbutton {
+                display: none;
+            }
+
+            .listNoJSbutton {
+                display: inline-block;
+            }
+
+            nav ul {
+                display: block;
+            }
+
+            @media only screen and (max-width: 1075px) {
+                nav ul {
+                    display: block;
+                }
+            }
+        </style>
+    </noscript>
+
+</head>
+
+<body>
+    <div id="dialog1" title="Uwaga">
+        <p>Tryb jasny został włączony.</p>
+    </div>
+
+    <div id="dialog2" title="Uwaga">
+        <p>Tryb nocny został włączony.</p>
+    </div>
+
+    
+
+    <div class="wrapper">
+        <header>
+            <div class="container">
+
+
+                <nav>
+                    <h2> Gry wideo </h2>
+                    <input type="image" id="image" alt="Login" src="./images/menuicon.png" onclick="toggleNavBar()" class="navbutton">
+                    <ul id="navTogglable">
+                        <li> <a href="index.html"> Strona główna </a></li>
+
+                        <li class="listJSbutton"> <a class="active" onclick="openList()"> Lista </a></li>
+                        <li class="listNoJSbutton"> <a class="active" href="lista-0.html"> Lista </a></li>
+
+                        <li> <a id="modeButton" onclick="toggleDarkMode(this)"> 🌣 / ☾ </a></li>
+
+
+                    </ul>
+
+
+                </nav>
+
+
+
+            </div>
+        </header>
+
+
+        <div id="content">
+
+            <div class="listnav">
+                <a class="basicbutton" href="lista-0.html" name="nextbutton">
+                    &lt;&lt;
+                </a>
+                <a class="basicbutton" href="lista-8.html" name="nextbutton">
+                    &lt;
+                </a>
+                <div class="pagenumber">
+                    Strona 9
+                </div>
+                <a class="basicbutton" href="lista-10.html" name="nextbutton">
+                    &gt;
+                </a>
+                <a class="basicbutton" href="lista-10.html" name="nextbutton" style="transform: scale(0);">
+                    &gt;&gt;
+                </a>
+
+
+
+            </div>
+
+            <h1> Undertale </h1>
+            <hr>
+
+
+            <img class="imagemain" alt="hug" src="./images/games/undertale/hug.jpg">
+
+            <p>
+                Undertale to niezależna gra RPG stworzona przez jedną osobę. Na początku wydaje się być tylko ciekawostką, wiele aspektów gatunku zostało tu przewróconych na głowie.
+                <br>
+                Na przykład zamiast walki, znanej z innych rpg-ów, można tu z przeciwnikiem zwyczajnie porozmawiać i przekonać go że walka to nie najlepsza opcja. 
+                <br>
+            </p>
+            <p>
+                Gra jest również pełna humoru oraz zabawnych postaci, które łatwo polubić. 
+                <br>
+                Jednak Undertale kryje w sobie również głębszą historię oraz lekcję o moralności.
+            </p>
+
+            <br><br>
+
+            <button class="spoilerbutton" name="spoilerbutton" type="button" onclick="toggleText(spoilertext1, this)">
+                Specyfikacja
+            </button> <br>
+            <div id="spoilertext1">
+                <p>
+                    Wydawca gry: Toby Fox
+                </p>
+                <p>
+                    Rok wydania: 2010
+                </p>
+                <p>
+                    Platformy: PC, Xbox One, Playstation 4, Xbox Series X/S, Playstation Vita, Nintendo Switch
+                </p>
+                
+            </div>
+
+
+            <br><br><br>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

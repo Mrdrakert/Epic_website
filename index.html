@@ -1,72 +1,162 @@
-<!doctype html>
+﻿<!doctype html>
 
-<html lang="en">
+<html lang="pl-PL">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
 
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="icon" href="neco_arc.ico">
 
-  <title>Wordle+</title>
-  <meta name="description" content="Super cool wordle.">
-  <meta name="author" content="Szweksus">
 
-  <link rel="stylesheet" href="styles.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Super strona xd</title>
+
+    <style>
+        .listJSbutton {
+            display: inline-block;
+        }
+
+        .listNoJSbutton {
+            display: none;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            #dialog1 {
+                display: none;
+            }
+
+            #dialog2 {
+                display: none;
+            }
+
+
+            .listJSbutton {
+                display: none;
+            }
+
+            .listNoJSbutton {
+                display: inline-block;
+            }
+
+            nav ul {
+                display: block;
+            }
+
+            @media only screen and (max-width: 1075px) {
+                nav ul {
+                    display: block;
+                }
+            }
+        </style>
+    </noscript>
 
 </head>
 
 <body>
-  <p id="log"></p>
+    <div id="dialog1" title="Uwaga">
+        <p>Tryb jasny został włączony.</p>
+    </div>
 
-  <div class="game_row" name="row1">
-    <div class="game_cell" name="1"> </div>
-    <div class="game_cell" name="2"> </div>
-    <div class="game_cell" name="3"> </div>
-    <div class="game_cell" name="4"> </div>
-    <div class="game_cell" name="5"> </div>
-  </div>
+    <div id="dialog2" title="Uwaga">
+        <p>Tryb nocny został włączony.</p>
+    </div>
 
-  <div class="game_row" name="row2">
-    <div class="game_cell" name="1"> </div>
-    <div class="game_cell" name="2"> </div>
-    <div class="game_cell" name="3"> </div>
-    <div class="game_cell" name="4"> </div>
-    <div class="game_cell" name="5"> </div>
-  </div>
 
-  <div class="game_row" name="row3">
-    <div class="game_cell" name="1"> </div>
-    <div class="game_cell" name="2"> </div>
-    <div class="game_cell" name="3"> </div>
-    <div class="game_cell" name="4"> </div>
-    <div class="game_cell" name="5"> </div>
-  </div>
-
-  <div class="game_row" name="row4">
-    <div class="game_cell" name="1"> </div>
-    <div class="game_cell" name="2"> </div>
-    <div class="game_cell" name="3"> </div>
-    <div class="game_cell" name="4"> </div>
-    <div class="game_cell" name="5"> </div>
-  </div>
-
-  <div class="game_row" name="row5">
-    <div class="game_cell" name="1"> </div>
-    <div class="game_cell" name="2"> </div>
-    <div class="game_cell" name="3"> </div>
-    <div class="game_cell" name="4"> </div>
-    <div class="game_cell" name="5"> </div>
-  </div>
-
-  <div class="game_row" name="row6">
-    <div class="game_cell" name="1"> </div>
-    <div class="game_cell" name="2"> </div>
-    <div class="game_cell" name="3"> </div>
-    <div class="game_cell" name="4"> </div>
-    <div class="game_cell" name="5"> </div>
-  </div>
     
 
-    <script src="script.js"></script>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+
+                <nav>
+                    <h2 id="sussy"> Gry wideo </h2>
+                    <input type="image" id="image" alt="Login" src="./images/menuicon.png" onclick="toggleNavBar()" class="navbutton">
+                    <ul id="navTogglable">
+                        <li> <a class="active" href="index.html"> Strona główna </a></li>
+
+                        <li class="listJSbutton"> <a onclick="openList()"> Lista </a></li>
+                        <li class="listNoJSbutton"> <a href="lista-0.html"> Lista </a></li>
+
+                        <li> <a id="modeButton" onclick="toggleDarkMode(this)"> 🌣 / ☾ </a></li>
+
+
+                    </ul>
+
+
+                </nav>
+
+
+
+            </div>
+        </header>
+
+
+        <div id="content">
+
+            <h1> Strona główna </h1>
+            <hr>
+
+            <img style="width: 50%;" class="imagemain" alt="funeral" src="./images/w3funeral.jpg">
+
+            <p>
+                Gry komputerowe to nie tylko bezmyślna rozrywka dla dzieci w wieku 10-14. Mogą być one medium przekazującym treści nieuchwytne w każdy inny sposób. Łączą elementy filmów, książek i muzyki w
+                interaktywną całość. W odbiorze sztuki ważne są nasze wrażenia, i trudniej o wrażenia gdy mamy bezpośredni wpływ na przebieg akcji.
+            </p>
+
+            <p>
+                W grach, twórcy scenariuszów mogą wykazać się bardziej, tworząc historie zmieniające się pod wpływem naszych decyzji podejmowanych w trakjie przygody. Natomiast kompozytorzy
+                mogą dostosować muzykę do miejsca w którym znajduje się nasza postać aby wywrzeć silne emocje.
+            </p>
+
+            <p>
+                Niektóre odpowiednio skonstruowane gry poprzez rozgrywkę, mogą nauczyć nas czegoś o samych sobie.
+            </p>
+
+            <br><br><br><br><br>
+
+            <button class="spoilerbutton" name="spoilerbutton" type="button" onclick="spawnGeralt()">
+                Łapka w górę!
+            </button> <br>
+            <div id="geralts">
+                <img id="geralt" alt="geralt" style="width: 14vw;" src="./images/geralt.png">
+
+            </div>
+
+
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Autor strony</a></li>
+                    <li><a href="#tabs-2">Informacje</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <p>Autor: Jan Szewczul</p>
+                    <p>Indeks: 188784</p>
+                    <p>Grupa: Grupa 5</p>
+                    <p>Kierunek: Informatyka</p>
+                </div>
+                <div id="tabs-2">
+                    <p>Wersja Jquery: 3.6.0</p>
+                    <p>Wersja Jquery UI: 1.13.0</p>
+                    <br>
+                </div>
+            </div>
+
+            <br><br><br>
+
+        </div>
+        </div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
