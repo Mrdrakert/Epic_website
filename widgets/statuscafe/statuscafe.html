@@ -3,128 +3,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Status.cafe Widget</title>
     <style>
-      /* Scoped widget styles: use CSS variables to adapt to host page */
+      /* Widget styled to match the main site's theme variables (style.css)
+         It prefers the host's CSS variables when available: --panel, --text, --muted, --accent
+         If embedded in an iframe those variables won't cross origins; in that case the fallbacks below apply. */
       .status-widget {
-        --status-bg: rgba(255,255,255,0.9);
-        --status-border: rgba(0,0,0,0.08);
-        --status-color: #111;
-        --status-text: #111;
-        --status-muted: #666;
-        --status-link: #0b66c2;
-        --status-radius: 10px;
-        --status-padding: 0.65rem 0.9rem;
-        font-family: inherit; /* inherit host font */
-        color: var(--status-color);
-        background: var(--status-bg);
-        border: 1px solid var(--status-border);
-        padding: var(--status-padding);
-        border-radius: var(--status-radius);
-        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-        display: inline-block;
-        max-width: 420px;
-        line-height: 1.3;
+        /* prefer site variables when present */
+        --status-bg: var(--panel, #0f1720);
+        --status-text: var(--text, #e6eef6);
+        --status-muted: var(--muted, #9aa6b2);
+        --status-link: var(--accent, #afedf9);
+        --status-radius: 8px;
+        --status-padding: 0.6rem 0.9rem;
+
+        box-sizing: border-box;
+        /* use the same playful font as the main site */
+        font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+        color: var(--status-text);
+        /* user requested transparent background */
+        background: transparent;
+  border: none;
+  padding: var(--status-padding);
+  border-radius: var(--status-radius);
+  box-shadow: none !important;
+        display: block;
+        width: 100%;
+        max-width: 360px;
+        line-height: 1.35;
         font-size: 14px;
       }
 
-      /* Friendly reset for paragraphs inside widget */
-      .status-widget p {
-        margin: 0;
+      .status-widget p{ margin: 0; }
+
+      /* header row: avatar+username on the left, time aligned right */
+      .status-widget .face{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:0.5rem;
+        margin-bottom:0.5rem;
+        color:var(--status-text);
       }
 
-      .status-widget .face {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.25rem;
-        font-weight: 600;
-        color: var(--status-text);
-        font-size: 1rem;
+      .status-widget .face-left{ display:flex;align-items:center;gap:0.5rem;flex:1 }
+
+  .status-widget .face-left img{ width:36px;height:36px;border-radius:999px;object-fit:cover;border:0 }
+
+      .status-widget .face-left:not(:has(img)){ font-size:1.2rem }
+
+      .status-widget .username{ color:var(--status-link); text-decoration:none; font-weight:800 }
+      .status-widget .username:hover,.status-widget .username:focus{ text-decoration:underline }
+
+  .status-widget .time-ago{ font-size:12px;color:var(--status-muted); margin:0 0 0 8px; white-space:nowrap }
+
+      .status-widget .status-content{ color:var(--status-text); font-size:0.95rem; white-space:pre-wrap; word-break:break-word }
+
+      /* small accessibility focus ring */
+      .status-widget:focus-within{ outline: 3px solid rgba(175,237,249,0.12); outline-offset: 2px }
+
+      @media (prefers-color-scheme: dark){
+        .status-widget{ box-shadow: none !important }
       }
 
-      /* If the fetched face includes an <img> avatar, size and round it */
-      .status-widget .face img {
-        width: 32px;
-        height: 32px;
-        border-radius: 999px;
-        object-fit: cover;
-        display: inline-block;
-      }
-
-      /* Fallback when face is an emoji or text */
-      .status-widget .face:not(:has(img)) {
-        font-size: 1.2rem;
-      }
-
-      .status-widget .username {
-        color: var(--status-link);
-        text-decoration: none;
-        font-weight: 700;
-      }
-
-      .status-widget .username:hover,
-      .status-widget .username:focus {
-        text-decoration: underline;
-      }
-
-      .status-widget .time-ago {
-        font-size: 12px;
-        color: var(--status-muted);
-        margin-bottom: 0.45rem;
-      }
-
-      .status-widget .status-content {
-        color: var(--status-text);
-        font-size: 0.95rem;
-        white-space: pre-wrap;
-        word-break: break-word;
-      }
-
-      /* Dark theme sensible defaults when host prefers dark */
-      @media (prefers-color-scheme: dark) {
-        .status-widget {
-          --status-bg: rgba(20,20,20,0.6);
-          --status-border: rgba(255,255,255,0.04);
-          --status-color: #eee;
-          --status-text: #e8e8e8;
-          --status-muted: #9aa0a6;
-          --status-link: #7fb3ff;
-          box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-        }
-      }
-
-      /* Make it responsive when embedded in narrow places */
-      @media (max-width: 360px) {
-        .status-widget { font-size: 13px; max-width: 100%; padding: 0.5rem; }
-        .status-widget .face img { width: 28px; height: 28px; }
-      }
+      @media (max-width:420px){ .status-widget{ max-width:100%; font-size:13px } .status-widget .face img{ width:30px;height:30px } }
     </style>
   </head>
   <body>
     <div class="status-widget">
-      <p class="face"><a class="username" href="https://status.cafe/users/szwk" target="_blank" rel="noopener noreferrer">szwk</a></p>
-      <p class="time-ago"></p>
-      <p class="status-content"></p>
+      <div class="face" role="group" aria-label="status header">
+        <div class="face-left">
+          <a class="username" href="https://status.cafe/users/szwk" target="_blank" rel="noopener noreferrer">szwk</a>
+        </div>
+        <div class="time-right"><span class="time-ago" aria-hidden="false"></span></div>
+      </div>
+      <div class="status-content" role="status" aria-live="polite"></div>
     </div>
 
     <script>
       fetch(`https://status.cafe/users/szwk/status.json`)
         .then((response) => response.json())
         .then((data) => {
-          const face = document.querySelector(".face");
-          face.innerHTML = data.face;
-          const username = document.createElement("a");
-          username.classList.add("username");
-          username.innerHTML = data.author;
-          username.href = "https://status.cafe/users/szwk";
-          username.target = "_blank";
-          username.rel = "noopener noreferrer";
-          face.appendChild(username);
-          document.querySelector(".time-ago").innerHTML = data.timeAgo;
-          document.querySelector(".status-content").innerHTML = data.content;
+          // insert face (emoji or avatar) into the left slot without wiping the header
+          const faceLeft = document.querySelector('.face-left');
+          if (faceLeft) {
+            faceLeft.innerHTML = data.face || '';
+
+            // ensure a username link exists and update it
+            let username = faceLeft.querySelector('.username');
+            if (!username) {
+              username = document.createElement('a');
+              username.className = 'username';
+              faceLeft.appendChild(username);
+            }
+            username.textContent = data.author || 'szwk';
+            username.href = 'https://status.cafe/users/szwk';
+            username.target = '_blank';
+            username.rel = 'noopener noreferrer';
+          }
+
+          const timeEl = document.querySelector('.time-ago');
+          if (timeEl) timeEl.textContent = data.timeAgo || '';
+
+          const contentEl = document.querySelector('.status-content');
+          if (contentEl) contentEl.innerHTML = data.content || '';
         })
         .catch((error) => {
-          document.querySelector(".status-content").textContent =
-            "Could not load status";
+          const contentEl = document.querySelector('.status-content');
+          if (contentEl) contentEl.textContent = 'Could not load status';
         });
     </script>
   
