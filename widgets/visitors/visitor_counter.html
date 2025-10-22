@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Visitor Counter Widget</title>
+  <style>
+    :root{--bg:#1f202c;--panel:#221238;--accent:#afedf9;--muted:#9aa6b2}
+    html,body{height:100%;margin:0;background:transparent;font-family:Arial, sans-serif}
+    .visitor-module{display:flex;flex-direction:column;align-items:center;gap:6px;background:linear-gradient(180deg,var(--bg),var(--panel));padding:10px;border-radius:4px;border:2px solid rgba(35,35,35,0.9);box-shadow:none;color:var(--accent)}
+    .visitor-legend{font-family: 'Orbitron', monospace;font-size:0.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px}
+    .visitor-counter{font-family: 'Orbitron', monospace;font-weight:700;font-size:1.2rem;color:var(--accent);padding:6px 14px;letter-spacing:1px;min-width:120px;text-align:center;background:transparent}
+    .visitor-counter::after{content:'';display:inline-block;width:6px;height:6px;margin-left:8px;border-radius:50%;background:rgba(175,237,249,0.9);box-shadow:0 0 8px rgba(175,237,249,0.6);opacity:0.85;vertical-align:middle}
+    @media (max-width:420px){.visitor-counter{font-size:1rem;min-width:86px;padding:4px 8px}}
+  </style>
+</head>
+<body>
+  <div class="visitor-module" role="status" aria-live="polite" aria-atomic="true">
+    <div class="visitor-legend">You are visitor number:</div>
+    <div class="visitor-counter" id="visitorCounter">0</div>
+  </div>
+
+  <script>
+    (function(){
+      const el = document.getElementById('visitorCounter');
+      function formatNumber(n){
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+      function refresh(){
+        fetch('https://weirdscifi.ratiosemper.com/neocities.php?sitename=szwk')
+          .then(r=>{ if(!r.ok) throw new Error('network'); return r.json() })
+          .then(data=>{
+            if(data && data.info && typeof data.info.views !== 'undefined'){
+              el.textContent = formatNumber(data.info.views);
+            }
+          })
+          .catch(err=>{
+            // keep previous value; optionally show '-' on error
+            console.warn('visitor counter fetch failed', err);
+          });
+      }
+      refresh();
+      // refresh every 5 minutes
+      setInterval(refresh, 5*60*1000);
+    })();
+  </script>
+</body>
+</html>
