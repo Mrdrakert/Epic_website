@@ -1,0 +1,39 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status.cafe Widget</title>
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <div class="status-widget">
+      <p class="face">✨<a class="username" href="https://status.cafe/users/szwk" target="_blank" rel="noopener noreferrer">szwk</a></p>
+      <p class="time-ago"></p>
+      <p class="status-content"></p>
+    </div>
+
+    <script>
+      fetch(`https://status.cafe/users/szwk/status.json`)
+        .then((response) => response.json())
+        .then((data) => {
+          const face = document.querySelector(".face");
+          face.innerHTML = data.face;
+          const username = document.createElement("a");
+          username.classList.add("username");
+          username.innerHTML = data.author;
+          username.href = "https://status.cafe/users/szwk";
+          username.target = "_blank";
+          username.rel = "noopener noreferrer";
+          face.appendChild(username);
+          document.querySelector(".time-ago").innerHTML = data.timeAgo;
+          document.querySelector(".status-content").innerHTML = data.content;
+        })
+        .catch((error) => {
+          document.querySelector(".status-content").textContent =
+            "Could not load status";
+        });
+    </script>
+  
+
+</body></html>
