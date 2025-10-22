@@ -8,23 +8,17 @@
         padding: 0;
         background: transparent;
       }
-      /* Widget styled to match the main site's theme variables (style.css)
-         It prefers the host's CSS variables when available: --panel, --text, --muted, --accent
-         If embedded in an iframe those variables won't cross origins; in that case the fallbacks below apply. */
       .status-widget {
-        /* prefer site variables when present */
         --status-bg: var(--panel, #0f1720);
         --status-text: var(--text, #e6eef6);
         --status-muted: var(--muted, #9aa6b2);
         --status-link: var(--accent, #afedf9);
         --status-radius: 8px;
-        --status-padding: 0.6rem 0.9rem;
 
         box-sizing: border-box;
-        /* use the same playful font as the main site */
+
         font-family: 'Comic Sans MS', 'Comic Sans', cursive;
         color: var(--status-text);
-        /* user requested transparent background */
         background: transparent;
   border: none;
   padding: var(--status-padding);
@@ -39,7 +33,6 @@
 
       .status-widget p{ margin: 0; }
 
-      /* header row: avatar+username on the left, time aligned right */
       .status-widget .face{
         display:flex;
         align-items:center;
